@@ -9,13 +9,14 @@
 
 
 """
-import testFSMpyFsm
+
 import OpenRTM_aist.EventPort as EventPort
 import OpenRTM_aist.StaticFSM as StaticFSM
 import OpenRTM_aist
 import RTC
 import sys
 import time
+import testFSMpyFSM
 sys.path.append(".")
 
 # Import RTM module
@@ -87,12 +88,12 @@ class testFSMpy(OpenRTM_aist.DataFlowComponentBase):
         # Set service consumers to Ports
 
         # Set CORBA Service Ports
-        self._fsm = StaticFSM.Machine(testFSMpyFsm.Top, self)
+        self._fsm = StaticFSM.Machine(testFSMpyFSM.Top, self)
         # self._fsm.init()
         self._eventIn = EventPort.EventInPort("event", self._fsm)
         self.addInPort("event", self._eventIn)
-        self._eventIn.bindEvent0("event1", testFSMpyFsm.Top.event1)
-        self._eventIn.bindEvent0("event2", testFSMpyFsm.Top.event2)
+        self._eventIn.bindEvent0("event1", testFSMpyFSM.Top.event1)
+        self._eventIn.bindEvent0("event2", testFSMpyFSM.Top.event2)
 
         return RTC.RTC_OK
 
