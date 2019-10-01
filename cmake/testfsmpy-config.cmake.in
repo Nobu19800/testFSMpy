@@ -1,0 +1,54 @@
+# testFSMpy CMake config file
+#
+# This file sets the following variables:
+# testFSMpy_FOUND - Always TRUE.
+# testFSMpy_INCLUDE_DIRS - Directories containing the testFSMpy include files.
+# testFSMpy_IDL_DIRS - Directories containing the testFSMpy IDL files.
+# testFSMpy_LIBRARIES - Libraries needed to use testFSMpy.
+# testFSMpy_DEFINITIONS - Compiler flags for testFSMpy.
+# testFSMpy_VERSION - The version of testFSMpy found.
+# testFSMpy_VERSION_MAJOR - The major version of testFSMpy found.
+# testFSMpy_VERSION_MINOR - The minor version of testFSMpy found.
+# testFSMpy_VERSION_REVISION - The revision version of testFSMpy found.
+# testFSMpy_VERSION_CANDIDATE - The candidate version of testFSMpy found.
+
+message(STATUS "Found testFSMpy-@PROJECT_VERSION@")
+set(testFSMpy_FOUND TRUE)
+
+find_package(<dependency> REQUIRED)
+
+#set(testFSMpy_INCLUDE_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@"
+#    ${<dependency>_INCLUDE_DIRS}
+#    )
+#
+#set(testFSMpy_IDL_DIRS
+#    "@CMAKE_INSTALL_PREFIX@/include/@PROJECT_NAME_LOWER@-@PROJECT_VERSION_MAJOR@/idl")
+set(testFSMpy_INCLUDE_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@"
+    ${<dependency>_INCLUDE_DIRS}
+    )
+set(testFSMpy_IDL_DIRS
+    "@CMAKE_INSTALL_PREFIX@/include/@CPACK_PACKAGE_FILE_NAME@/idl")
+
+
+if(WIN32)
+    set(testFSMpy_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_STATIC_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+else(WIN32)
+    set(testFSMpy_LIBRARIES
+        "@CMAKE_INSTALL_PREFIX@/@LIB_INSTALL_DIR@/@CMAKE_SHARED_LIBRARY_PREFIX@@PROJECT_NAME_LOWER@@CMAKE_SHARED_LIBRARY_SUFFIX@"
+        ${<dependency>_LIBRARIES}
+        )
+endif(WIN32)
+
+set(testFSMpy_DEFINITIONS ${<dependency>_DEFINITIONS})
+
+set(testFSMpy_VERSION @PROJECT_VERSION@)
+set(testFSMpy_VERSION_MAJOR @PROJECT_VERSION_MAJOR@)
+set(testFSMpy_VERSION_MINOR @PROJECT_VERSION_MINOR@)
+set(testFSMpy_VERSION_REVISION @PROJECT_VERSION_REVISION@)
+set(testFSMpy_VERSION_CANDIDATE @PROJECT_VERSION_CANDIDATE@)
+

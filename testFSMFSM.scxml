@@ -1,0 +1,28 @@
+<scxml initial="node1" name="Top" version="1.0" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=0 y=0 w=115 h=388  -->
+ <state id="node1"><!--   node-size-and-position x=20 y=43 w=75 h=75  -->
+  <onentry>
+   <log label="ON"></log>
+  </onentry>
+  <onexit>
+   <log label="ON"></log>
+  </onexit>
+  <transition event="event1" id="13" target="node2"></transition>
+ </state>
+ <state id="node2"><!--   node-size-and-position x=20 y=168 w=75 h=75  -->
+  <onentry>
+   <log label="ON"></log>
+  </onentry>
+  <onexit>
+   <log label="ON"></log>
+  </onexit>
+  <transition event="event2" id="15" target="node3"></transition>
+ </state>
+ <final id="node3"><!--   node-size-and-position x=20 y=293 w=75 h=75  -->
+  <onentry>
+   <log label="ON"></log>
+  </onentry>
+  <onexit>
+   <log label="ON"></log>
+  </onexit>
+ </final>
+</scxml>
