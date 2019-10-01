@@ -257,9 +257,7 @@ class testFSMpyTest(OpenRTM_aist.DataFlowComponentBase):
     #	return RTC.RTC_OK
 
     def runTest(self):
-        self._event1Out.write()
-        self._event2Out.write()
-        return False
+        return True
 
 
 def RunTest():
